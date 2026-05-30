@@ -13,9 +13,14 @@ import GlowingParticles from './components/GlowingParticles';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-color-bg-darker text-color-text-muted flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
       {/* Immersive Background Overlays */}
       <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+        {/* Animated Cairo night light rays */}
+        <div className="light-ray-overlay" />
+        <div className="light-ray-overlay-2" />
+        
+        {/* Floating lanterns & ember sparks */}
         <LanternOverlay />
         <GlowingParticles />
       </div>

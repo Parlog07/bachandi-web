@@ -6,9 +6,12 @@ export const Hero = () => {
       id="home" 
       className="hero-section bg-islamic-pattern"
       style={{
-        background: 'radial-gradient(circle at 50% 50%, #200202 0%, #080202 100%)'
+        background: 'radial-gradient(circle at 50% 50%, #200202 0%, #0c0202 100%)'
       }}
     >
+      {/* Traditional Arabic Arch border outline */}
+      <div className="arabic-arch-frame" />
+
       {/* Dynamic Lighting Effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 ambient-glow-red rounded-full transform -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 ambient-glow-gold rounded-full transform translate-x-1/2 translate-y-1/2" />
@@ -85,7 +88,7 @@ export const Hero = () => {
 
       {/* Bottom Arch Divider */}
       <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none" style={{ transform: 'rotate(180deg)' }}>
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '40px', fill: '#080202', display: 'block' }}>
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ width: '100%', height: '40px', fill: '#120303', display: 'block' }}>
           <path d="M0,0 C150,90 350,120 600,120 C850,120 1050,90 1200,0 L1200,120 L0,120 Z"></path>
         </svg>
       </div>

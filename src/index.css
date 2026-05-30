@@ -1,10 +1,10 @@
 /* Bachandi Premium Arabic Shawarma Design System */
 
 :root {
-  /* Colors */
-  --color-bg-darker: #080202;
-  --color-bg-dark: #0f0505;
-  --color-bg-card: #170a0a;
+  /* Colors - Warmer, Richer Crimson and Maroon */
+  --color-bg-darker: #120303;
+  --color-bg-dark: #1c0606;
+  --color-bg-card: #2d0b0b;
   
   --color-red-primary: #8b0000;
   --color-red-light: #b30000;
@@ -20,7 +20,7 @@
   --color-amber-glow: rgba(255, 140, 0, 0.35);
   
   --color-text-light: #fbf8f3;
-  --color-text-muted: #b8a698;
+  --color-text-muted: #c8b7aa;
   --color-text-cream: #f4edd8;
 
   /* Typography */
@@ -112,18 +112,18 @@ strong, b {
 
 /* Glassmorphism Styles */
 .glass-panel {
-  background: rgba(23, 10, 10, 0.65);
+  background: rgba(29, 11, 11, 0.7);
   backdrop-filter: blur(12px) saturate(160%);
   -webkit-backdrop-filter: blur(12px) saturate(160%);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.18);
   border-radius: 12px;
 }
 
 .glass-panel-heavy {
-  background: rgba(15, 5, 5, 0.85);
+  background: rgba(20, 6, 6, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.22);
   border-radius: 16px;
 }
 
@@ -233,6 +233,29 @@ strong, b {
   }
 }
 
+/* New creative animations: Light drift & Light rays */
+@keyframes glow-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(8%, 5%) scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+@keyframes light-rays {
+  0%, 100% {
+    opacity: 0.15;
+    transform: rotate(-10deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: rotate(-7deg) scaleY(1.08);
+  }
+}
+
 /* Utility Animations */
 .animate-sway {
   animation: sway 6s ease-in-out infinite alternate;
@@ -263,26 +286,73 @@ strong, b {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 0 L45 25 L70 20 L55 40 L70 60 L45 55 L40 80 L35 55 L10 60 L25 40 L10 20 L35 25 Z' fill='%23d4af37' fill-opacity='0.02' stroke='%23d4af37' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 0 L45 25 L70 20 L55 40 L70 60 L45 55 L40 80 L35 55 L10 60 L25 40 L10 20 L35 25 Z' fill='%23d4af37' fill-opacity='0.03' stroke='%23d4af37' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Ambient Radial Lights */
+/* Ambient Radial Lights (Dynamic and Moving) */
 .ambient-glow-red {
-  background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(139, 0, 0, 0.22) 0%, rgba(0,0,0,0) 70%);
   pointer-events: none;
+  animation: glow-drift 10s ease-in-out infinite alternate;
 }
 
 .ambient-glow-gold {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 70%);
   pointer-events: none;
+  animation: glow-drift 12s ease-in-out infinite alternate-reverse;
 }
 
 .ambient-glow-amber {
-  background: radial-gradient(circle, rgba(255, 140, 0, 0.08) 0%, rgba(0,0,0,0) 65%);
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.12) 0%, rgba(0,0,0,0) 65%);
   pointer-events: none;
+  animation: glow-drift 8s ease-in-out infinite alternate;
+}
+
+/* Beautiful Animated Light Ray Overlay */
+.light-ray-overlay {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(105deg, rgba(255, 215, 0, 0.04) 0%, rgba(255, 140, 0, 0.01) 50%, transparent 100%);
+  transform-origin: top left;
+  transform: rotate(-10deg);
+  pointer-events: none;
+  z-index: 2;
+  animation: light-rays 14s ease-in-out infinite alternate;
+  filter: blur(8px);
+}
+
+.light-ray-overlay-2 {
+  position: absolute;
+  top: 0;
+  right: 15%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(75deg, rgba(139, 0, 0, 0.06) 0%, rgba(255, 215, 0, 0.01) 60%, transparent 100%);
+  transform-origin: top right;
+  transform: rotate(10deg);
+  pointer-events: none;
+  z-index: 2;
+  animation: light-rays 18s ease-in-out infinite alternate-reverse;
+  filter: blur(12px);
+}
+
+/* Traditional Arabic Arch Border Frame for Sections */
+.arabic-arch-frame {
+  position: absolute;
+  top: 4rem;
+  bottom: 4rem;
+  left: 2rem;
+  right: 2rem;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  border-radius: 40% 40% 0 0 / 15% 15% 0 0; /* Islamic arch shape outline */
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Button & Card Micro-interactions */
@@ -371,7 +441,7 @@ strong, b {
 
 .card-luxury:hover {
   transform: translateY(-8px);
-  background: rgba(26, 12, 12, 0.85);
+  background: rgba(45, 17, 17, 0.85);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
@@ -389,6 +459,62 @@ strong, b {
     padding: 4rem 1rem;
   }
 }
+
+/* ==========================================================================
+   BASIC TAILWIND LAYOUT UTILITY CLASSES (REQUIRED FOR STRUCTURE COMPATIBILITY)
+   ========================================================================== */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
 
 /* ==========================================================================
    VANILLA LAYOUT SYSTEM (REPLACING TAILWIND UTILITIES FOR FULL COMPATIBILITY)
@@ -536,7 +662,7 @@ strong, b {
   padding: 0.35rem 1rem;
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 9999px;
-  background-color: rgba(23, 10, 10, 0.6);
+  background-color: rgba(45, 17, 17, 0.6);
   backdrop-filter: blur(12px);
   margin-bottom: 1.5rem;
 }
@@ -570,7 +696,7 @@ strong, b {
 }
 
 .hero-desc {
-  color: #d1d5db;
+  color: #e5e7eb;
   font-size: 1.125rem;
   margin-bottom: 2rem;
   max-width: 32rem;
@@ -589,7 +715,7 @@ strong, b {
   gap: 2rem;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   width: 100%;
 }
 
@@ -603,7 +729,7 @@ strong, b {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #9ca3af;
+  color: #d1d5db;
   margin-top: 0.25rem;
 }
 
@@ -690,7 +816,7 @@ strong, b {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  color: #d1d5db;
+  color: #e5e7eb;
   font-size: 1.05rem;
 }
 
@@ -729,7 +855,7 @@ strong, b {
 
 .about-card-desc {
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: #d1d5db;
   line-height: 1.5;
 }
 
@@ -741,7 +867,7 @@ strong, b {
 }
 
 .section-header-desc {
-  color: #9ca3af;
+  color: #d1d5db;
   margin-top: 1rem;
 }
 
@@ -770,9 +896,9 @@ strong, b {
 }
 
 .menu-tab-btn.inactive {
-  background-color: rgba(23, 10, 10, 0.6);
+  background-color: rgba(45, 17, 17, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  color: #9ca3af;
+  color: #d1d5db;
 }
 
 .menu-tab-btn.inactive:hover {
@@ -817,7 +943,7 @@ strong, b {
 }
 
 .menu-card-desc {
-  color: #9ca3af;
+  color: #d1d5db;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -958,7 +1084,7 @@ strong, b {
 }
 
 .signature-desc {
-  color: #d1d5db;
+  color: #e5e7eb;
   font-size: 1.125rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -970,7 +1096,7 @@ strong, b {
   position: relative;
   margin-bottom: 2rem;
   width: 100%;
-  background-color: rgba(23, 10, 10, 0.5);
+  background-color: rgba(45, 17, 17, 0.5);
 }
 
 .signature-quote-icon {
@@ -983,7 +1109,7 @@ strong, b {
 }
 
 .signature-quote-text {
-  color: #d1d5db;
+  color: #e5e7eb;
   font-style: italic;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -1071,7 +1197,7 @@ strong, b {
 }
 
 .gallery-overlay-subtitle {
-  color: #9ca3af;
+  color: #d1d5db;
   font-size: 0.875rem;
 }
 
@@ -1128,7 +1254,7 @@ strong, b {
 }
 
 .testimonial-text {
-  color: #d1d5db;
+  color: #e5e7eb;
   font-size: 0.95rem;
   font-style: italic;
   line-height: 1.6;
@@ -1151,7 +1277,7 @@ strong, b {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #6b7280;
+  color: #9ca3af;
   margin-top: 0.25rem;
 }
 
@@ -1206,7 +1332,7 @@ strong, b {
 
 .contact-item-val {
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: #d1d5db;
   margin-top: 0.25rem;
 }
 
@@ -1237,7 +1363,7 @@ strong, b {
 }
 
 .contact-hours-day {
-  color: #9ca3af;
+  color: #d1d5db;
 }
 
 .contact-hours-time {
@@ -1291,7 +1417,7 @@ strong, b {
 
 .contact-success-desc {
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: #d1d5db;
   max-width: 24rem;
 }
 
@@ -1316,7 +1442,7 @@ strong, b {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #9ca3af;
+  color: #d1d5db;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -1373,7 +1499,7 @@ strong, b {
 }
 
 .footer-slogan {
-  color: #9ca3af;
+  color: #d1d5db;
   max-width: 28rem;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -1401,7 +1527,7 @@ strong, b {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #9ca3af;
+  color: #d1d5db;
   transition: color 0.2s;
 }
 
