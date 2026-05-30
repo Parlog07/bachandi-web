@@ -28,7 +28,7 @@ export const Testimonials = () => {
       id="testimonials" 
       className="section-padding relative overflow-hidden bg-islamic-pattern"
       style={{
-        backgroundColor: 'var(--color-bg-dark)'
+        backgroundColor: 'rgba(28, 6, 6, 0.45)'
       }}
     >
       {/* Background glow effects */}

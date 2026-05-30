@@ -40,7 +40,7 @@ export const Gallery = () => {
       id="gallery" 
       className="section-padding relative overflow-hidden bg-islamic-pattern"
       style={{
-        backgroundColor: 'var(--color-bg-darker)'
+        backgroundColor: 'rgba(18, 3, 3, 0.55)'
       }}
     >
       {/* Ambient glows */}

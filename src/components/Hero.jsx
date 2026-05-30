@@ -6,7 +6,7 @@ export const Hero = () => {
       id="home" 
       className="hero-section bg-islamic-pattern"
       style={{
-        background: 'radial-gradient(circle at 50% 50%, #200202 0%, #0c0202 100%)'
+        background: 'radial-gradient(circle at 50% 50%, rgba(32, 2, 2, 0.4) 0%, rgba(12, 2, 2, 0.8) 100%)'
       }}
     >
       {/* Traditional Arabic Arch border outline */}

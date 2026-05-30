@@ -3,7 +3,14 @@ import { Flame } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="footer bg-islamic-pattern">
+    <footer 
+      className="footer bg-islamic-pattern"
+      style={{
+        backgroundColor: 'rgba(8, 2, 2, 0.9)',
+        position: 'relative',
+        zIndex: 20
+      }}
+    >
       {/* Background ambient light */}
       <div className="absolute left-1/2 bottom-0 w-[500px] h-[250px] ambient-glow-red rounded-full opacity-20 transform -translate-x-1/2 pointer-events-none" />
 
