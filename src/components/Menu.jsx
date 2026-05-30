@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flame, Sparkles, AlertCircle } from 'lucide-react';
+import { Flame, Sparkles } from 'lucide-react';
 
 export const Menu = () => {
   const [activeTab, setActiveTab] = useState('sandwiches');
@@ -142,35 +142,31 @@ export const Menu = () => {
       <div className="absolute left-1/4 top-1/3 w-[450px] h-[450px] ambient-glow-red rounded-full opacity-20 pointer-events-none" />
       <div className="absolute right-1/4 bottom-1/3 w-[450px] h-[450px] ambient-glow-gold rounded-full opacity-25 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="container-max relative z-10">
         
         {/* Header Text */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-gold-gradient text-xs uppercase tracking-widest font-semibold mb-3">
+        <div className="section-header">
+          <h2 className="section-subtitle">
             Our Culinary Treasures
           </h2>
           <h3 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="section-title"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             The Menu
           </h3>
-          <p className="text-gray-400">
+          <p className="section-header-desc">
             Carefully curated recipes fusing ancient Middle Eastern spices with modern gourmet craftsmanship. Select a category to begin your journey.
           </p>
         </div>
 
         {/* Categories Tab Selector */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="menu-tabs">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-6 py-3 rounded-full text-sm font-semibold tracking-wider transition-all duration-300 ${
-                activeTab === cat.id
-                  ? 'bg-gradient-to-r from-[#8b0000] to-[#4a0000] border border-[#d4af37] text-white shadow-lg'
-                  : 'bg-[#170a0a]/60 border border-white/5 text-gray-400 hover:text-white hover:border-[#d4af37]/30'
-              }`}
+              className={`menu-tab-btn ${activeTab === cat.id ? 'active' : 'inactive'}`}
               style={{
                 fontFamily: 'var(--font-body)',
                 background: activeTab === cat.id ? 'linear-gradient(135deg, var(--color-red-primary) 0%, var(--color-red-dark) 100%)' : 'rgba(23, 10, 10, 0.6)'
@@ -182,17 +178,17 @@ export const Menu = () => {
         </div>
 
         {/* Menu Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="menu-grid">
           {menuItems[activeTab].map((item, idx) => (
             <div 
               key={idx}
-              className="glass-panel p-6 md:p-8 card-luxury flex flex-col justify-between text-left"
+              className="menu-card glass-panel card-luxury"
             >
               <div>
-                <div className="flex justify-between items-start gap-4 mb-4">
+                <div className="menu-card-top">
                   {/* Item Name */}
                   <h4 
-                    className="text-xl md:text-2xl font-bold text-[#f4edd8]"
+                    className="menu-card-title"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     {item.name}
@@ -200,7 +196,7 @@ export const Menu = () => {
                   
                   {/* Price */}
                   <span 
-                    className="text-lg md:text-xl font-bold text-gold-gradient shrink-0"
+                    className="menu-card-price text-gold-gradient"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     {item.price}
@@ -208,20 +204,20 @@ export const Menu = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+                <p className="menu-card-desc">
                   {item.desc}
                 </p>
               </div>
 
               {/* Tag and features */}
-              <div className="flex justify-between items-center border-t border-white/5 pt-4 mt-auto">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#8b0000]/10 border border-[#d4af37]/20 text-gold-light">
-                  {item.spicy ? <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" /> : <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />}
+              <div className="menu-card-footer">
+                <span className="menu-card-badge">
+                  {item.spicy ? <Flame className="w-3.5 h-3.5 text-red-500" /> : <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />}
                   {item.tag}
                 </span>
 
                 <button 
-                  className="text-xs uppercase tracking-wider font-semibold text-[#f4edd8] hover:text-[#d4af37] transition-colors"
+                  className="menu-card-action"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   Order Add-on

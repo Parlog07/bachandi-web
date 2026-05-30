@@ -28,22 +28,20 @@ export const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'py-3 bg-opacity-90 shadow-2xl border-b border-opacity-40' 
-          : 'py-6 bg-opacity-40 border-b border-opacity-10'
-      }`}
+      className="navbar"
       style={{ 
-        backgroundColor: scrolled ? 'rgba(12, 4, 4, 0.92)' : 'rgba(8, 2, 2, 0.5)',
+        paddingTop: scrolled ? '0.75rem' : '1.5rem',
+        paddingBottom: scrolled ? '0.75rem' : '1.5rem',
+        backgroundColor: scrolled ? 'rgba(12, 4, 4, 0.92)' : 'rgba(8, 2, 2, 0.4)',
         borderBottom: `1px solid ${scrolled ? 'rgba(212, 175, 55, 0.3)' : 'rgba(212, 175, 55, 0.1)'}`,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="nav-container">
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <Flame className="w-6 h-6 text-[#d4af37] transition-all group-hover:scale-110 group-hover:text-[#f3c556]" />
+        <a href="#home" className="nav-logo">
+          <Flame className="w-6 h-6 text-[#d4af37]" />
           <span 
             className="text-2xl font-bold tracking-widest text-gold-gradient"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -53,21 +51,17 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Menu Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="nav-links">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium tracking-wider text-gray-300 hover:text-white transition-colors duration-300 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#d4af37] after:transition-all hover:after:w-full"
+              className="nav-link"
             >
               {link.name}
             </a>
           ))}
-        </div>
-
-        {/* Order CTA Button */}
-        <div className="hidden md:block">
-          <a href="#menu" className="btn-primary text-xs py-2 px-5 rounded-md">
+          <a href="#menu" className="btn-primary nav-cta-btn" style={{ padding: '0.5rem 1.25rem', fontSize: '0.75rem' }}>
             Order Now
           </a>
         </div>
@@ -75,7 +69,7 @@ export const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+          className="nav-toggle-btn"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -83,33 +77,31 @@ export const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100 border-b border-[#d4af37]/20 shadow-2xl' : 'max-h-0 opacity-0'
-        }`}
+        className={`nav-mobile-menu ${isOpen ? 'open' : ''}`}
         style={{ 
           background: 'rgba(15, 5, 5, 0.96)',
-          backdropFilter: 'blur(16px)'
+          backdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(212, 175, 55, 0.2)'
         }}
       >
-        <div className="flex flex-col px-6 py-4 gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-gray-300 hover:text-white py-2 text-lg border-b border-gray-800/40"
-            >
-              {link.name}
-            </a>
-          ))}
+        {navLinks.map((link) => (
           <a
-            href="#menu"
+            key={link.name}
+            href={link.href}
             onClick={() => setIsOpen(false)}
-            className="btn-primary text-center mt-2"
+            className="nav-mobile-link"
           >
-            Order Now
+            {link.name}
           </a>
-        </div>
+        ))}
+        <a
+          href="#menu"
+          onClick={() => setIsOpen(false)}
+          className="btn-primary"
+          style={{ textAlign: 'center', marginTop: '0.5rem' }}
+        >
+          Order Now
+        </a>
       </div>
     </nav>
   );

@@ -35,56 +35,56 @@ export const Testimonials = () => {
       <div className="absolute left-1/4 bottom-1/4 w-[350px] h-[350px] ambient-glow-red rounded-full opacity-20 pointer-events-none" />
       <div className="absolute right-1/4 top-1/4 w-[350px] h-[350px] ambient-glow-gold rounded-full opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="container-max relative z-10">
         
         {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-gold-gradient text-xs uppercase tracking-widest font-semibold mb-3">
+        <div className="section-header">
+          <h2 className="section-subtitle">
             Honored Guests
           </h2>
           <h3 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+            className="section-title"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Reviews & Testimonials
           </h3>
-          <p className="text-gray-400">
+          <p className="section-header-desc">
             Read what food critics and loyal diners say about their experiences dining under our glowing lanterns.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="testimonials-grid">
           {reviews.map((r, idx) => (
             <div 
               key={idx}
-              className="glass-panel p-8 card-luxury flex flex-col justify-between text-left relative bg-[#170a0a]/50"
+              className="testimonial-card glass-panel card-luxury"
             >
-              <Quote className="absolute right-6 top-6 w-10 h-10 text-[#d4af37]/10" />
+              <Quote className="testimonial-quote-icon" />
 
               <div>
                 {/* Stars */}
-                <div className="flex gap-1 mb-6">
+                <div className="testimonial-stars">
                   {Array.from({ length: r.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#d4af37] text-[#d4af37]" />
+                    <Star key={i} className="testimonial-star-icon" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-8 italic">
+                <p className="testimonial-text">
                   "{r.quote}"
                 </p>
               </div>
 
               {/* Reviewer Meta */}
-              <div className="border-t border-white/5 pt-4 mt-auto">
+              <div className="testimonial-user">
                 <h4 
-                  className="text-lg font-bold text-[#f4edd8]"
+                  className="testimonial-name"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   {r.name}
                 </h4>
-                <p className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                <p className="testimonial-role">
                   {r.role}
                 </p>
               </div>
