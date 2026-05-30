@@ -49,7 +49,7 @@ export const Signature = () => {
                 className="signature-image"
               />
               <div className="signature-image-badge">
-                <Sparkles className="w-3.5 h-3.5 fill-[#080202]" /> Signature Masterpiece
+                <Sparkles size={14} className="fill-[#080202]" /> Signature Masterpiece
               </div>
             </div>
           </div>

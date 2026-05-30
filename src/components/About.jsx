@@ -4,17 +4,17 @@ import { Flame, Sparkles, ShieldCheck } from 'lucide-react';
 export const About = () => {
   const pillars = [
     {
-      icon: <Flame className="w-6 h-6 text-[#d4af37]" />,
+      icon: <Flame size={24} className="text-[#d4af37]" />,
       title: 'Secret 18-Spice Blend',
       desc: 'Our meat is marinating for 24 hours in an heirloom spice recipe passed down through generations.'
     },
     {
-      icon: <Sparkles className="w-6 h-6 text-[#d4af37]" />,
+      icon: <Sparkles size={24} className="text-[#d4af37]" />,
       title: 'Traditional Spit-Roasting',
       desc: 'Cooked slowly to succulent perfection on custom vertical spits, then finished over genuine fruitwood charcoal embers.'
     },
     {
-      icon: <ShieldCheck className="w-6 h-6 text-[#d4af37]" />,
+      icon: <ShieldCheck size={24} className="text-[#d4af37]" />,
       title: 'Gourmet Ingredients',
       desc: 'From organic local herbs to imported Syrian olive oil, we never compromise on the quality of our ingredients.'
     }

@@ -85,7 +85,7 @@ export const Gallery = () => {
                 style={{ background: 'linear-gradient(to top, rgba(12,4,4,0.95) 0%, rgba(12,4,4,0.4) 60%, transparent 100%)' }}
               >
                 <span className="gallery-overlay-tag">
-                  <Sparkles className="w-3 h-3 fill-[#d4af37]" /> culinary art
+                  <Sparkles size={12} className="fill-[#d4af37]" /> culinary art
                 </span>
                 <h4 
                   className="gallery-overlay-title"

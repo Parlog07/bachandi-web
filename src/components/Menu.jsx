@@ -212,7 +212,7 @@ export const Menu = () => {
               {/* Tag and features */}
               <div className="menu-card-footer">
                 <span className="menu-card-badge">
-                  {item.spicy ? <Flame className="w-3.5 h-3.5 text-red-500" /> : <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />}
+                  {item.spicy ? <Flame size={14} className="text-red-500" /> : <Sparkles size={14} className="text-[#d4af37]" />}
                   {item.tag}
                 </span>
 

@@ -12,7 +12,7 @@ export const Footer = () => {
         {/* Brand & Slogan */}
         <div className="footer-top">
           <div className="footer-logo-box">
-            <Flame className="w-7 h-7 text-[#d4af37]" />
+            <Flame size={28} className="text-[#d4af37]" />
             <span 
               className="footer-logo-text text-gold-gradient"
               style={{ fontFamily: 'var(--font-heading)' }}

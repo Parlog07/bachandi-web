@@ -41,7 +41,7 @@ export const Navbar = () => {
       <div className="nav-container">
         {/* Brand Logo */}
         <a href="#home" className="nav-logo">
-          <Flame className="w-6 h-6 text-[#d4af37]" />
+          <Flame size={24} className="text-[#d4af37]" />
           <span 
             className="text-2xl font-bold tracking-widest text-gold-gradient"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -71,7 +71,7 @@ export const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="nav-toggle-btn"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 

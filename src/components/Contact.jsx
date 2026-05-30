@@ -124,7 +124,7 @@ export const Contact = () => {
             {submitted ? (
               <div className="contact-success">
                 <div className="contact-success-icon-box">
-                  <Send className="w-5 h-5 text-[#d4af37]" />
+                  <Send size={20} className="text-[#d4af37]" />
                 </div>
                 <h5 className="contact-success-title" style={{ fontFamily: 'var(--font-heading)' }}>
                   Reservation Received!
@@ -168,7 +168,7 @@ export const Contact = () => {
                   {/* Date */}
                   <div className="form-group">
                     <label className="form-label flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" /> Date & Time
+                      <Calendar size={14} /> Date & Time
                     </label>
                     <input 
                       type="datetime-local" 
@@ -182,7 +182,7 @@ export const Contact = () => {
                   {/* Guests */}
                   <div className="form-group">
                     <label className="form-label flex items-center gap-1.5">
-                      <Users className="w-3.5 h-3.5" /> Table Size
+                      <Users size={14} /> Table Size
                     </label>
                     <select 
                       name="guests" 
@@ -219,7 +219,7 @@ export const Contact = () => {
                   className="w-full btn-primary"
                   style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', height: '48px', marginTop: '0.5rem' }}
                 >
-                  <Send className="w-4 h-4" /> Request Booking
+                  <Send size={16} /> Request Booking
                 </button>
               </form>
             )}
